@@ -6,28 +6,64 @@
   </head>
   <body>
     <h1>CEK PRESENSI APPS</h1>
-    <div>
-      <div>Masukan data siswa</div>
-      <input
-        type="file"
-        id="inputFileClass"
-        placeholder="Masukan data siswa kelas"
-      />
+    <div class="input-container">
+      <div class="preview-container">
+        <div class="input-wrapper">
+          <div>
+            <div class="title-input">Masukan data siswa</div>
+            <input
+              type="file"
+              id="inputFileClass"
+              onchange="onSelectData('preview-table-class', 'inputFileClass')"
+            />
+          </div>
+          <div>
+            <div class="title-input">Masukan nomor kolom yang digunakan</div>
+            <input
+              class="input-column-number"
+              type="number"
+              id="selected-column-class"
+            />
+          </div>
+        </div>
+        <div id="preview-table-class"></div>
+      </div>
+      <div class="preview-container">
+        <div class="input-wrapper">
+          <div>
+            <div class="title-input">Masukan data absensi siswa</div>
+            <input type="file" id="inputFile" />
+          </div>
+          <div>
+            <div class="title-input">Masukan nomor kolom yang digunakan</div>
+            <input
+              class="input-column-number"
+              type="number"
+              id="selected-column-presensi"
+            />
+          </div>
+        </div>
+        <div id="preview-table-presensi"></div>
+      </div>
     </div>
-    <div>
-      <div>Masukan data absensi siswa</div>
-      <input type="file" id="inputFile" />
-      <button onclick="onClickSubmit()">submit</button>
+    <div class="btn-submit-wrapper">
+      <button onclick="onClickSubmit()" class="btn-submit">Submit</button>
     </div>
 
     <div>
-      <table id="late-student-data">
-        <tr>
+      <button id="btn-generate" class="btn-generate">Generate to CSV</button>
+      <table id="late-student-data" class="table-data">
+        <tr class="rows-table-header">
           <th>No.</th>
           <th>Name</th>
           <th>Class</th>
+          <th>Nomor Daring</th>
         </tr>
       </table>
+
+      <div class="no-data-wrapper" id="no-data-box">
+        No Data
+      </div>
     </div>
   </body>
   <script type="text/javascript" src="index.js"></script>
